@@ -14,13 +14,15 @@ expect {
 
 
 puts "\n*****************************************************************************************************"
-puts "\n                 LOGIN ${hostname} SUCCESSFULLY  START TO EXCUTE COMMAND       "
+puts "\n                 LOGIN ${hostname} SUCCESSFULLY  START TO EXCUTE COMMAND       "
 puts "\n*****************************************************************************************************"
 
 expect "root@*"  {send "cd ${WORK_PATH}\r"}
 expect "root@*"  {send "ls -lsth \r"}
 # 停止java程序  kill `jps -l | grep chess-admin | awk '{print $1}'`
-expect "root@*"  {send "kill `jps -l |awk '$2~"dial-plan-"{print $1}'`\r"}
-expect "root@*"  {send "nohup java -jar dial-plan-0.0.1-SNAPSHOT.jar & \r"}
+#  kill `jps -l |awk '$2~"dial-plan-"{print $1}'`
+puts '正在执行脚本。。。。。。'
+expect "root@*"  {send "./restart.sh \r"}
 expect "root@*"  {send "tail -f nohup.out  \r"}
-expect "root@*"  {send "exit\r"}
+puts '脚本执行完毕。。。。。。'
+expect "root@*"  {send "exit \r"}
