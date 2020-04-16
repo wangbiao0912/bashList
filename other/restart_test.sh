@@ -1,0 +1,2 @@
+./scp.sh
+./restartTask.sh

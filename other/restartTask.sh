@@ -13,6 +13,7 @@ expect {
 }
 
 
+
 puts "\n*****************************************************************************************************"
 puts "\n                 LOGIN ${hostname} SUCCESSFULLY  START TO EXCUTE COMMAND       "
 puts "\n*****************************************************************************************************"
@@ -24,5 +25,8 @@ expect "root@*"  {send "ls -lsth \r"}
 puts '正在执行脚本。。。。。。'
 expect "root@*"  {send "./restart.sh \r"}
 expect "root@*"  {send "tail -f nohup.out  \r"}
+expect "root@*"  {send "sleep 10  \r"}
 puts '脚本执行完毕。。。。。。'
+expect "root@*"  {send "ps -aux | grep java  \r"}
 expect "root@*"  {send "exit \r"}
+
