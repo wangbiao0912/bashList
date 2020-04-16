@@ -1,5 +1,5 @@
 #! /bin/sh
-mvn clean package
+mvn clean package -Dmaven.test.skip=true
 expect -c "
     spawn scp -r /Users/wangbiao/work/hzjy/haiNanDianXin/source/code/dial-system/dial-plan/target/dial-plan-0.0.1-SNAPSHOT.jar root@ip地址:/usr/local/spring-boot/dial-system/dial-plan/
     expect {
